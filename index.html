@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WebCyb – Phishing Email Checker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="hero">
+    <nav>
+      <span class="logo">Web<span>Cyb</span></span>
+      <a href="#what">Phishing</a>
+      <a href="#about">About</a>
+      <a href="#check" class="nav-cta">Check an email</a>
+    </nav>
+    <div class="hero-inner">
+      <p class="eyebrow">Cybersecurity made simple</p>
+      <h1>Web<span>Cyb</span></h1>
+      <blockquote>
+        “Phishing is the art of tricking people into opening the door themselves —
+        the strongest lock means nothing if you hand over the key.”
+      </blockquote>
+      <a href="#check" class="btn">Check an email now</a>
+    </div>
+  </header>
+
+  <main>
+    <section id="what" class="card">
+      <h2>What is phishing?</h2>
+      <p>
+        <strong>Phishing</strong> is a cyberattack where criminals send messages that pretend to come
+        from someone you trust — your bank, a delivery company, your school, or a popular website.
+        The goal is to trick you into clicking a dangerous link, opening a harmful attachment, or giving
+        away personal information such as passwords, credit card numbers, or your identity.
+      </p>
+      <ul class="signs">
+        <li><b>Urgency or threats</b> — “Your account will be closed in 24 hours!”</li>
+        <li><b>Requests for personal info</b> — asking for passwords, bank or card details.</li>
+        <li><b>Suspicious links</b> — web addresses that look almost right, but aren’t.</li>
+        <li><b>Fake senders</b> — addresses like <code>support@paypa1-secure.com</code>.</li>
+      </ul>
+    </section>
+
+    <section id="about" class="card">
+      <h2>What is WebCyb for?</h2>
+      <p>
+        Most email security tools are built for experts. <strong>WebCyb</strong> is built for everyone.
+        Paste an email you received and WebCyb scans it for the common warning signs of phishing.
+        Then the WebCyb AI agent reviews it and replies with a clear answer: is it phishing or not,
+        why, and what you should do next.
+      </p>
+      <div class="steps">
+        <div><span>1</span>Paste the email</div>
+        <div><span>2</span>WebCyb scans for red flags</div>
+        <div><span>3</span>The AI agent replies with the result</div>
+      </div>
+    </section>
+
+    <section id="check" class="card check">
+      <h2>Check your email</h2>
+      <p class="muted">Copy the full email (sender, subject and message) and paste it below.</p>
+      <div class="warning">⚠️ Do not include passwords or other sensitive data. Your email never leaves your browser: WebCyb checks it right on your device.</div>
+      <form id="check-form">
+        <label for="email" class="sr-only">Email content</label>
+        <textarea id="email" name="email" maxlength="20000" required
+          placeholder="From: support@example.com&#10;Subject: ...&#10;&#10;Paste the email here..."></textarea>
+        <p id="error" class="error" hidden></p>
+        <button type="submit" class="btn">Analyze email</button>
+      </form>
+    </section>
+
+    <section id="result" class="card result" hidden>
+      <h2>Result</h2>
+      <div class="verdict">
+        <div class="badge" id="badge"></div>
+        <div>
+          <p class="verdict-title" id="verdict-title"></p>
+          <p class="muted">Risk level: <b id="risk-level"></b> · Scanner score: <span id="score"></span>/100</p>
+          <div class="meter"><div id="meter"></div></div>
+        </div>
+      </div>
+      <div class="agent">
+        <h3>🤖 WebCyb Agent reply</h3>
+        <p id="agent-reply"></p>
+      </div>
+      <h3>Why WebCyb flagged it</h3>
+      <ul class="reasons" id="reasons"></ul>
+      <h3>What you should do</h3>
+      <ul class="advice" id="advice"></ul>
+    </section>
+  </main>
+
+  <script src="detector.js"></script>
+  <script src="app.js"></script>
+  <footer>WebCyb prototype · Computing Seminar · Results are guidance, not a guarantee.</footer>
+</body>
+</html>
